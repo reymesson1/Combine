@@ -11,6 +11,7 @@ import Combine
 class LoginViewModel: ObservableObject {
   
   // MARK: Input
+  private var authenticationService = AuthenticationService()
   @Published var username: String = ""
   @Published var password: String = ""
   @Published var passwordConfirmation: String = ""
@@ -19,53 +20,28 @@ class LoginViewModel: ObservableObject {
   @Published var usernameMessage: String = ""
   @Published var passwordMessage: String = ""
   @Published var isValid: Bool = false
-
-    private var isUsernameLengthValidPublisher: AnyPublisher<Bool, Never> {
+    
+    private var isUsernameAvailablePublisher: AnyPublisher<Bool, Never> {
         
         $username
-            .map{ $0.count >= 3 }
+            .flatMap{ username in
+            
+                self.authenticationService.checkUserNameAvailable(userName: username)
+            }
             .eraseToAnyPublisher()
     }
-    
-    private var isPasswordEmptyPublisher: AnyPublisher<Bool, Never> {
-        
-        $password
-            .map{ $0.isEmpty }
-            .eraseToAnyPublisher()
-    }
-    
-    private var isPasswordMatchingPublisher: AnyPublisher<Bool, Never> {
-        Publishers.CombineLatest($password, $passwordConfirmation)
-            .map(==)
-            .eraseToAnyPublisher()
-    }
-    
+
     init(){
-        isUsernameLengthValidPublisher
+        
+        isUsernameAvailablePublisher
             .assign(to: &$isValid)
         
-        isUsernameLengthValidPublisher
-            .map{
+        isUsernameAvailablePublisher
+            .map {
                 $0 ? ""
-                : "Username too short. Needs to be at least 3 characters."
+                : "Username not available. Try a different one."
             }
             .assign(to: &$usernameMessage)
-        
-        Publishers.CombineLatest(
-        
-            isPasswordEmptyPublisher,
-            isPasswordMatchingPublisher
-        )
-        .map { isPasswordEmpty, isPasswordMatching in
-        
-            if isPasswordEmpty {
-                return "Password must be empty"
-            } else if !isPasswordMatching {
-                return "Password do not match"
-            }
-            return ""
-        }
-        .assign(to: &$passwordMessage)
         
     }
 }

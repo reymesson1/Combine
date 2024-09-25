@@ -16,6 +16,8 @@
 		ED4CBE9E2C9DCD5C00770A25 /* project004UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4CBE9D2C9DCD5C00770A25 /* project004UITestsLaunchTests.swift */; };
 		ED4CBEB02C9DCE5800770A25 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4CBEAF2C9DCE5800770A25 /* LoginView.swift */; };
 		ED4CBEB22C9DCE6700770A25 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4CBEB12C9DCE6700770A25 /* LoginViewModel.swift */; };
+		ED61D15E2CA398BA00E0B8B7 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED61D15D2CA398BA00E0B8B7 /* AuthenticationService.swift */; };
+		ED61D1602CA39A2E00E0B8B7 /* UserNameAvailableMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED61D15F2CA39A2E00E0B8B7 /* UserNameAvailableMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		ED4CBE9D2C9DCD5C00770A25 /* project004UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = project004UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		ED4CBEAF2C9DCE5800770A25 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		ED4CBEB12C9DCE6700770A25 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		ED61D15D2CA398BA00E0B8B7 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		ED61D15F2CA39A2E00E0B8B7 /* UserNameAvailableMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameAvailableMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,7 @@
 		ED4CBEAC2C9DCE3400770A25 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ED61D15F2CA39A2E00E0B8B7 /* UserNameAvailableMessage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -163,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				ED4CBEB12C9DCE6700770A25 /* LoginViewModel.swift */,
+				ED61D15D2CA398BA00E0B8B7 /* AuthenticationService.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -306,9 +312,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED4CBEB22C9DCE6700770A25 /* LoginViewModel.swift in Sources */,
+				ED61D1602CA39A2E00E0B8B7 /* UserNameAvailableMessage.swift in Sources */,
 				ED4CBEB02C9DCE5800770A25 /* LoginView.swift in Sources */,
 				ED4CBE822C9DCD5A00770A25 /* ContentView.swift in Sources */,
 				ED4CBE802C9DCD5A00770A25 /* project004App.swift in Sources */,
+				ED61D15E2CA398BA00E0B8B7 /* AuthenticationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
