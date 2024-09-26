@@ -28,6 +28,12 @@ class LoginViewModel: ObservableObject {
             
                 self.authenticationService.checkUserNameAvailable(userName: username)
             }
+            .debounce(for: 5.8, scheduler: DispatchQueue.main)
+            .removeDuplicates()
+            .print("username")
+            .receive(on: DispatchQueue.main)
+            .print("share")
+            .share()
             .eraseToAnyPublisher()
     }
 
